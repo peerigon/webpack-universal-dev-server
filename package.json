@@ -3,8 +3,13 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "webpack-universal-dev-server": "./bin/webpack-universal-dev-server.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "posttest": "npm run lint",
+    "lint": "eslint --fix bin lib test"
   },
   "repository": {
     "type": "git",
@@ -22,5 +27,12 @@
   "bugs": {
     "url": "https://github.com/peerigon/webpack-universal-dev-server/issues"
   },
-  "homepage": "https://github.com/peerigon/webpack-universal-dev-server#readme"
+  "homepage": "https://github.com/peerigon/webpack-universal-dev-server#readme",
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "eslint-config-peerigon": "^9.0.0",
+    "eslint-plugin-jsdoc": "^2.4.0",
+    "webpack": "^2.2.0-rc.4",
+    "webpack-dev-server": "^2.2.0-rc.0"
+  }
 }
