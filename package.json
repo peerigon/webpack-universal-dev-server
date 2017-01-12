@@ -1,0 +1,26 @@
+{
+  "name": "webpack-universal-dev-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peerigon/webpack-universal-dev-server.git"
+  },
+  "keywords": [
+    "webpack",
+    "webpack-dev-server",
+    "universal",
+    "isomorphic",
+    "development"
+  ],
+  "author": "developers@peerigon.com",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/peerigon/webpack-universal-dev-server/issues"
+  },
+  "homepage": "https://github.com/peerigon/webpack-universal-dev-server#readme"
+}
