@@ -17,6 +17,7 @@ test("the middleware queues all next functions when a PauseMessage is sent " +
     "and calls all next functions after the next tick when a ContinueMessage is sent", async t => {
     const req = { url: "" };
     const callOrder = [];
+    const oneTick = Promise.resolve();
 
     process.emit("message", pause());
 
@@ -28,7 +29,7 @@ test("the middleware queues all next functions when a PauseMessage is sent " +
 
     process.emit("message", resume());
 
-    await new Promise(resolve => resolve());
+    await oneTick;
 
     t.is(callOrder.join(""), "abc");
 });
