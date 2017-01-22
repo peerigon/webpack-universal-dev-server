@@ -2,10 +2,6 @@ import test from "ava";
 import pauseMiddleware from "../../lib/util/pauseMiddleware";
 import { pause, resume } from "../../lib/util/messages";
 
-test.before(() => {
-    pauseMiddleware.enable();
-});
-
 test("the middleware is inactive by default and just calls next", t => {
     const req = { url: "" };
     let called = false;
@@ -35,8 +31,4 @@ test("the middleware queues all next functions when a PauseMessage is sent " +
     await new Promise(resolve => resolve());
 
     t.is(callOrder.join(""), "abc");
-});
-
-test.after(() => {
-    pauseMiddleware.disable();
 });
