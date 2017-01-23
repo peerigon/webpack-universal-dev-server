@@ -2,25 +2,25 @@
 /* eslint-disable no-console */
 
 // This binary is restricted to the development environment
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = "development";
 
 // This implementation is not 100% exact because it might get out-of-sync in case the webpack build finishes sooner than
 // the server re-starts. In this rare case, you may experience a proxy error in your browser.
 // However, a simple browser refresh fixes it, so it is good enough for now.
 
-const devHelper = require('../tools/webpack/devHelper');
+const devHelper = require("../tools/webpack/devHelper");
 
-const errorSeparator = '\n---------------------------------------------------------------------------\n';
+const errorSeparator = "\n---------------------------------------------------------------------------\n";
 const wdsProcess = devHelper.createWDSProcess({
     logBuildStart() {
-        console.log(yellow('webpack client build started...'));
+        console.log(yellow("webpack client build started..."));
     },
     logBuildSuccess(duration) {
-        console.log(green('webpack client build finished') + ' after ' + (duration / 1000).toFixed(1) + 's');
+        console.log(green("webpack client build finished") + " after " + (duration / 1000).toFixed(1) + "s");
     },
     logBuildError(error) {
         console.log(errorSeparator);
-        console.log('webpack client build error');
+        console.log("webpack client build error");
         console.log(errorSeparator);
         console.log(error);
         console.log(errorSeparator);
@@ -44,8 +44,8 @@ function killServerProcess() {
     if (!serverProcess) {
         return;
     }
-    console.log(yellow('Restarting web app...'));
-    serverProcess.kill('SIGKILL');
+    console.log(yellow("Restarting web app..."));
+    serverProcess.kill("SIGKILL");
     serverProcess = null;
 }
 
@@ -62,13 +62,13 @@ devHelper.createServerBuildProcess({
     killServerProcess,
     createServerProcess,
     logBuildStart() {
-        console.log(yellow('webpack server build started...'));
+        console.log(yellow("webpack server build started..."));
     },
     logBuildSuccess(duration) {
-        console.log(green('webpack server build finished') + ' after ' + (duration / 1000).toFixed(1) + 's');
+        console.log(green("webpack server build finished") + " after " + (duration / 1000).toFixed(1) + "s");
     },
     logBuildError(error) {
-        console.log('webpack server build error');
+        console.log("webpack server build error");
         console.log(errorSeparator);
         console.log(error);
         console.log(errorSeparator);
