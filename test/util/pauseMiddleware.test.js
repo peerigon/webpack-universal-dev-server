@@ -2,7 +2,7 @@ import test from "ava";
 import pauseMiddleware from "../../lib/util/pauseMiddleware";
 import { wdsPause, wdsResume } from "../../lib/util/messages";
 
-test("the middleware is inactive by default and just calls next", t => {
+test("is inactive by default and just calls next", t => {
     const req = { url: "" };
     let called = false;
 
@@ -13,7 +13,7 @@ test("the middleware is inactive by default and just calls next", t => {
     t.is(called, true);
 });
 
-test("the middleware queues all next functions when a PauseMessage is sent " +
+test("queues all next functions when a PauseMessage is sent " +
     "and calls all next functions after the next tick when a ContinueMessage is sent", async t => {
     const req = { url: "" };
     const callOrder = [];
