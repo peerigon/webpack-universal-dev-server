@@ -1,6 +1,6 @@
 import test from "ava";
 import PublishBuildStatusPlugin from "../../lib/webpackPlugins/PublishBuildStatusPlugin";
-import { TYPE_WWP_COMPILATION, TYPE_WWP_DONE } from "../../lib/util/messages";
+import { TYPE_WP_WATCH_PROCESS_COMPILATION, TYPE_WP_WATCH_PROCESS_DONE } from "../../lib/util/messages";
 
 test("an instance exposes the option object", t => {
     const options = {
@@ -62,7 +62,7 @@ test("the apply() method registers a function for the 'compilation' and the 'don
     t.deepEqual(hooks, ["compilation", "done"]);
 });
 
-test("calls publish() on 'compilation' with a wwpCompilation message", t => {
+test("calls publish() on 'compilation' with a wpWatchProcessCompilation message", t => {
     const publisher = "test";
     const options = {
         publisher,
@@ -84,12 +84,12 @@ test("calls publish() on 'compilation' with a wwpCompilation message", t => {
     plugin.apply(compiler);
     handler();
     t.deepEqual(message, {
-        type: TYPE_WWP_COMPILATION,
+        type: TYPE_WP_WATCH_PROCESS_COMPILATION,
         publisher
     });
 });
 
-test("calls publish() on 'done' with a wwpDone message", t => {
+test("calls publish() on 'done' with a wpWatchProcessDone message", t => {
     const publisher = "test";
     const options = {
         publisher,
@@ -118,7 +118,7 @@ test("calls publish() on 'done' with a wwpDone message", t => {
     plugin.apply(compiler);
     handler(stats);
     t.deepEqual(message, {
-        type: TYPE_WWP_DONE,
+        type: TYPE_WP_WATCH_PROCESS_DONE,
         publisher,
         duration: 3,
         hasErrors: true,

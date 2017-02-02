@@ -1,6 +1,6 @@
 import test from "ava";
 import pauseMiddleware from "../../lib/util/pauseMiddleware";
-import { wdsPause, wdsResume } from "../../lib/util/messages";
+import { wpDevServerPause, wpDevServerResume } from "../../lib/util/messages";
 
 test("is inactive by default and just calls next", t => {
     const req = { url: "" };
@@ -19,7 +19,7 @@ test("queues all next functions when a PauseMessage is sent " +
     const callOrder = [];
     const oneTick = Promise.resolve();
 
-    process.emit("message", wdsPause());
+    process.emit("message", wpDevServerPause());
 
     pauseMiddleware(req, null, () => callOrder.push("a"));
     pauseMiddleware(req, null, () => callOrder.push("b"));
@@ -27,7 +27,7 @@ test("queues all next functions when a PauseMessage is sent " +
 
     t.is(callOrder.join(""), "");
 
-    process.emit("message", wdsResume());
+    process.emit("message", wpDevServerResume());
 
     await oneTick;
 
