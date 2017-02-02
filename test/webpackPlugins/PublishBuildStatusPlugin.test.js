@@ -1,5 +1,5 @@
 import test from "ava";
-import PublishBuildStatusPlugin from "../../lib/webpackPlugins/PublishBuildStatusPlugin";
+import PublishBuildStatusPlugin from "../../lib/webpack/PublishBuildStatusPlugin";
 import { wpWatchProcessCompilation, wpWatchProcessDone } from "../../lib/util/messages";
 
 test("an instance exposes the option object", t => {

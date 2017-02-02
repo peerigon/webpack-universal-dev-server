@@ -1,5 +1,5 @@
 import test from "ava";
-import PauseWDSPlugin from "../../lib/webpackPlugins/PauseWDSPlugin";
+import PauseWDSPlugin from "../../lib/webpack/PauseWDSPlugin";
 import pauseMiddleware from "../../lib/util/pauseMiddleware";
 
 test("an instance exposes the option object", t => {
