@@ -1,6 +1,6 @@
 import test from "ava";
 import PublishBuildStatusPlugin from "../../lib/webpackPlugins/PublishBuildStatusPlugin";
-import { TYPE_WP_WATCH_PROCESS_COMPILATION, TYPE_WP_WATCH_PROCESS_DONE } from "../../lib/util/messages";
+import { wpWatchProcessCompilation, wpWatchProcessDone } from "../../lib/util/messages";
 
 test("an instance exposes the option object", t => {
     const options = {
@@ -83,10 +83,7 @@ test("calls publish() on 'compilation' with a wpWatchProcessCompilation message"
 
     plugin.apply(compiler);
     handler();
-    t.deepEqual(message, {
-        type: TYPE_WP_WATCH_PROCESS_COMPILATION,
-        publisher
-    });
+    t.deepEqual(message, wpWatchProcessCompilation(publisher));
 });
 
 test("calls publish() on 'done' with a wpWatchProcessDone message", t => {
@@ -117,12 +114,5 @@ test("calls publish() on 'done' with a wpWatchProcessDone message", t => {
 
     plugin.apply(compiler);
     handler(stats);
-    t.deepEqual(message, {
-        type: TYPE_WP_WATCH_PROCESS_DONE,
-        publisher,
-        duration: 3,
-        hasErrors: true,
-        hasWarnings: true,
-        errorLog: ["errors-only"]
-    });
+    t.deepEqual(message, wpWatchProcessDone(publisher, stats));
 });
