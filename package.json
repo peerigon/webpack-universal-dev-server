@@ -35,6 +35,9 @@
     "url": "https://github.com/peerigon/webpack-universal-dev-server/issues"
   },
   "homepage": "https://github.com/peerigon/webpack-universal-dev-server#readme",
+  "dependencies": {
+    "yargs": "^6.6.0"
+  },
   "devDependencies": {
     "ava": "^0.17.0",
     "babel-cli": "^6.22.2",
