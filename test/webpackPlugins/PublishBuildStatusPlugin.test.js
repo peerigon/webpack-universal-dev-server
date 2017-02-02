@@ -1,6 +1,6 @@
 import test from "ava";
 import PublishBuildStatusPlugin from "../../lib/webpack/PublishBuildStatusPlugin";
-import { wpWatchProcessCompilation, wpWatchProcessDone } from "../../lib/util/messages";
+import { wpCompilation, wpDone } from "../../lib/util/messages";
 
 test("an instance exposes the option object", t => {
     const options = {
@@ -62,7 +62,7 @@ test("the apply() method registers a function for the 'compilation' and the 'don
     t.deepEqual(hooks, ["compilation", "done"]);
 });
 
-test("calls publish() on 'compilation' with a wpWatchProcessCompilation message", t => {
+test("calls publish() on 'compilation' with a wpCompilation message", t => {
     const publisher = "test";
     const options = {
         publisher,
@@ -83,10 +83,10 @@ test("calls publish() on 'compilation' with a wpWatchProcessCompilation message"
 
     plugin.apply(compiler);
     handler();
-    t.deepEqual(message, wpWatchProcessCompilation(publisher));
+    t.deepEqual(message, wpCompilation(publisher));
 });
 
-test("calls publish() on 'done' with a wpWatchProcessDone message", t => {
+test("calls publish() on 'done' with a wpDone message", t => {
     const publisher = "test";
     const options = {
         publisher,
@@ -114,5 +114,5 @@ test("calls publish() on 'done' with a wpWatchProcessDone message", t => {
 
     plugin.apply(compiler);
     handler(stats);
-    t.deepEqual(message, wpWatchProcessDone(publisher, stats));
+    t.deepEqual(message, wpDone(publisher, stats));
 });
