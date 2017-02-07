@@ -1,0 +1,3 @@
+exports[`should log the received 'listening' message (pipe address) 1`] = `"["App server listening at pipe path/to/pipe"]"`;
+
+exports[`should log the received 'listening' message (port address) 1`] = `"[\"App server listening at port localhost:8080\"]"`;

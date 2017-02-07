@@ -4,7 +4,8 @@ module.exports = function (wallaby) {
             type: "node"
         },
         files: [
-            "lib/**/**.js"
+            "lib/**/**.js",
+            "test/**/**.js.snap"
         ],
         tests: [
             "test/**/**.test.js"
