@@ -1,7 +1,7 @@
 import { EOL } from "os"; // We split the logs by EOL to make the snapshot tests OS independent.
 import test from "ava";
 import { WritableProcess, ReadableProcess } from "../helpers/fakeProcesses";
-import wireAppServer from "../../lib/wire/wireAppServer";
+import wireAppServer from "../../lib/wire/appServer";
 import { appServerListening, wpDevServerResume } from "../../lib/util/messages";
 
 function noop() {}
