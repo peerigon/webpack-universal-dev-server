@@ -1,2 +1,2 @@
-[libs]
-types/
+[options]
+suppress_comment=\\(.\\|\n\\)*\\@flow ignore-dynamic-require
