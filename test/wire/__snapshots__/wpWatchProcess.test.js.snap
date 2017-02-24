@@ -1,5 +1,5 @@
-exports[`should log a build error message when the wpWatchProcess emitted a wpDone message with an errorLog 1`] = `"["","---------------------------------------------------------------------------------------","webpack server build error","---------------------------------------------------------------------------------------","","Module build failed","","---------------------------------------------------------------------------------------"]"`;
+exports[`should log a build error message when the wpWatchProcess emitted a wpDone message with an errorLog 1`] = `"[\"\",\"---------------------------------------------------------------------------------------\",\"\\u001b[31mwebpack server build error\\u001b[39m\",\"---------------------------------------------------------------------------------------\",\"\",\"Module build failed\",\"\",\"---------------------------------------------------------------------------------------\"]"`;
 
-exports[`should log a build started message when the wpWatchProcess emitted a wpCompilation message 1`] = `"[\"webpack server build started...\"]"`;
+exports[`should log a build started message when the wpWatchProcess emitted a wpCompilation message 1`] = `"[\"\\u001b[33mwebpack server build\\u001b[39m started...\"]"`;
 
-exports[`should log a build success message when the wpWatchProcess emitted a wpDone message with hasErrors false 1`] = `"[\"webpack server build finished after 1.5s\"]"`;
+exports[`should log a build success message when the wpWatchProcess emitted a wpDone message with hasErrors false 1`] = `"[\"\\u001b[32mwebpack server build finished\\u001b[39m after 1.5s\"]"`;
