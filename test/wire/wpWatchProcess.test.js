@@ -1,6 +1,6 @@
 import { EOL } from "os"; // We split the logs by EOL to make the snapshot tests OS independent.
 import test from "ava";
-import { WritableProcess, ReadableProcess } from "../helpers/fakeProcesses";
+import { WritableProcess, ReadableProcess, SilentProcess } from "../helpers/fakeProcesses";
 import wireWpWatchProcess from "../../lib/wire/wpWatchProcess";
 import { wpCompilation, wpDone } from "../../lib/util/messages";
 
@@ -139,4 +139,15 @@ test("should pipe stderr from wpWatchProcess to process", async t => {
     });
 
     t.is(process.stderr.getContentsAsString("utf8"), "test");
+});
+
+test("should not throw if the wpWatchProcess is a silent process", t => {
+    const wpWatchProcess = new SilentProcess();
+    const process = new WritableProcess();
+
+    wireWpWatchProcess({
+        wpWatchProcess,
+        process,
+        log: noop
+    });
 });

@@ -16,3 +16,12 @@ export class ReadableProcess extends EventEmitter {
         this.stderr = new ReadableStreamBuffer();
     }
 }
+
+export class SilentProcess extends EventEmitter {
+    constructor() {
+        super();
+        // Processes created by fork() and silent: true have no output streams
+        this.stdout = null;
+        this.stderr = null;
+    }
+}
