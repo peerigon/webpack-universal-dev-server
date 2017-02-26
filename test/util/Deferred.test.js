@@ -5,10 +5,14 @@ test("should be creatable without arguments", t => {
     t.notThrows(() => new Deferred());
 });
 
-test("should have a `promise` property", t => {
+// In node 4, deferred.promise will be a promise polyfill
+// Use instanceof when node 4 is not supported anymore
+test("should have a `promise` property which is promise-like", t => {
     const deferred = new Deferred();
 
-    t.truthy(deferred.promise instanceof Promise);
+    t.truthy(deferred.promise);
+    t.is(typeof deferred.promise.then, "function");
+    t.is(typeof deferred.promise.catch, "function");
 });
 
 test("should have a `resolve` function", t => {

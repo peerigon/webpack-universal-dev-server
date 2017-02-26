@@ -1,5 +1,5 @@
 import test from "ava";
-import devServerSetup from "../../lib/util/devServerSetup";
+import devServerSetup from "../../lib/webpack/devServerSetup";
 import pauseMiddleware from "../../lib/util/pauseMiddleware";
 
 test("returns a function that registers the pauseMiddleware on the app", t => {
