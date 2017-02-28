@@ -2,7 +2,7 @@ import { EOL } from "os"; // We split the logs by EOL to make the snapshot tests
 import test from "ava";
 import { WritableProcess, ReadableProcess } from "../helpers/fakeProcesses";
 import wireAppServer from "../../lib/wire/appServer";
-import { appServerListening, wpDevServerResume } from "../../lib/util/messages";
+import { TYPE_APP_SERVER_LISTENING, wpDevServerResume } from "../../lib/util/messages";
 
 function noop() {}
 
@@ -19,15 +19,15 @@ test("should send a 'resume' message to the webpack-dev-server when the app serv
         log: noop
     });
 
-    appServer.emit("message", appServerListening("port", {
-        address: "localhost",
-        port: "8080"
-    }));
+    appServer.emit("message", {
+        type: TYPE_APP_SERVER_LISTENING,
+        port: 8080
+    });
 
     t.deepEqual(receivedMessage, wpDevServerResume());
 });
 
-test("should log the received 'listening' message (port address)", t => {
+test("should log the received 'listening' message", t => {
     const appServer = new ReadableProcess();
     let receivedLog;
 
@@ -40,15 +40,16 @@ test("should log the received 'listening' message (port address)", t => {
         }
     });
 
-    appServer.emit("message", appServerListening("port", {
-        address: "localhost",
-        port: "8080"
-    }));
+    appServer.emit("message", {
+        type: TYPE_APP_SERVER_LISTENING,
+        host: "127.0.0.1",
+        port: 8080
+    });
 
     t.snapshot(receivedLog.split(EOL));
 });
 
-test("should log the received 'listening' message (pipe address)", t => {
+test("should log the received 'listening' message (fallback localhost)", t => {
     const appServer = new ReadableProcess();
     let receivedLog;
 
@@ -61,7 +62,10 @@ test("should log the received 'listening' message (pipe address)", t => {
         }
     });
 
-    appServer.emit("message", appServerListening("pipe", "path/to/pipe"));
+    appServer.emit("message", {
+        type: TYPE_APP_SERVER_LISTENING,
+        port: 8080
+    });
 
     t.snapshot(receivedLog.split(EOL));
 });
