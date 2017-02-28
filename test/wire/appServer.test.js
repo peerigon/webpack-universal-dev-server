@@ -1,8 +1,8 @@
-import { EOL } from "os"; // We split the logs by EOL to make the snapshot tests OS independent.
 import test from "ava";
-import { WritableProcess, ReadableProcess } from "../helpers/fakeProcesses";
 import wireAppServer from "../../lib/wire/appServer";
 import { TYPE_APP_SERVER_LISTENING, wpDevServerResume } from "../../lib/util/messages";
+import { WritableProcess, ReadableProcess } from "../helpers/fakeProcesses";
+import normalizeLog from "../helpers/normalizeLog";
 
 function noop() {}
 
@@ -46,7 +46,7 @@ test("should log the received 'listening' message", t => {
         port: 8080
     });
 
-    t.snapshot(receivedLog.split(EOL));
+    t.snapshot(normalizeLog(receivedLog));
 });
 
 test("should log the received 'listening' message (fallback localhost)", t => {
@@ -67,7 +67,7 @@ test("should log the received 'listening' message (fallback localhost)", t => {
         port: 8080
     });
 
-    t.snapshot(receivedLog.split(EOL));
+    t.snapshot(normalizeLog(receivedLog));
 });
 
 test("should pipe stdout and stderr from appServer to process", async t => {

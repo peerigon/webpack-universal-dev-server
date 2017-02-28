@@ -1,12 +1,10 @@
-import { EOL } from "os";
 import test from "ava";
 import { buildStarted, buildSuccess, buildError } from "../../lib/util/logMessages";
+import normalizeLog from "../helpers/normalizeLog";
 
-// Colors cannot be tested in a good way because most CI systems don't use colors.
-// We split the message by EOL to make these snapshot tests OS independent.
 function check(message) {
     return t => {
-        t.snapshot(message.split(EOL));
+        t.snapshot(normalizeLog(message));
     };
 }
 

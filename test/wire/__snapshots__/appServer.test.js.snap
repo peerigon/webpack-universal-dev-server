@@ -1,3 +1,7 @@
+exports[`should log the received 'listening' message (fallback localhost) 1`] = `"\"App server listening at localhost:8080\""`;
+
 exports[`should log the received 'listening' message (pipe address) 1`] = `"["App server listening at pipe path/to/pipe"]"`;
 
-exports[`should log the received 'listening' message (port address) 1`] = `"[\"App server listening at port localhost:8080\"]"`;
+exports[`should log the received 'listening' message (port address) 1`] = `"["App server listening at port localhost:8080"]"`;
+
+exports[`should log the received 'listening' message 1`] = `"\"App server listening at 127.0.0.1:8080\""`;

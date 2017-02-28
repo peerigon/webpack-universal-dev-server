@@ -1,8 +1,8 @@
-import { EOL } from "os"; // We split the logs by EOL to make the snapshot tests OS independent.
 import test from "ava";
-import { WritableProcess, ReadableProcess, SilentProcess } from "../helpers/fakeProcesses";
 import wireWpDevServer from "../../lib/wire/wpDevServer";
 import { wpCompilation, wpDone } from "../../lib/util/messages";
+import { WritableProcess, ReadableProcess, SilentProcess } from "../helpers/fakeProcesses";
+import normalizeLog from "../helpers/normalizeLog";
 
 function noop() {}
 
@@ -20,7 +20,7 @@ test("should log a build started message when the wpDevServer process emitted a 
 
     wpDevServer.emit("message", wpCompilation("test-publisher"));
 
-    t.snapshot(receivedLog.split(EOL));
+    t.snapshot(normalizeLog(receivedLog));
 });
 
 test("should log a build success message when the wpDevServer process emitted a wpDone message with hasErrors false", t => {
@@ -44,7 +44,7 @@ test("should log a build success message when the wpDevServer process emitted a 
 
     wpDevServer.emit("message", wpDone("test-publisher", fakeWpStats));
 
-    t.snapshot(receivedLog.split(EOL));
+    t.snapshot(normalizeLog(receivedLog));
 });
 
 test("should log a build error message when the wpDevServer process emitted a wpDone message with an errorLog", t => {
@@ -68,7 +68,7 @@ test("should log a build error message when the wpDevServer process emitted a wp
 
     wpDevServer.emit("message", wpDone("test-publisher", fakeWpStats));
 
-    t.snapshot(receivedLog.split(EOL));
+    t.snapshot(normalizeLog(receivedLog));
 });
 
 test("should pipe stderr from wpDevServer to process", async t => {
