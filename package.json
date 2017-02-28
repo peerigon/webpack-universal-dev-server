@@ -68,6 +68,7 @@
     "files": [
       "test/**/**.js"
     ],
+    "babel": "inherit",
     "require": [
       "babel-register"
     ]
