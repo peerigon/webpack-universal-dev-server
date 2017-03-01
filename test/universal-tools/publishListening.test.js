@@ -1,6 +1,6 @@
 import test from "ava";
 import publishListening from "../../lib/universal-tools/publishListening";
-import { TYPE_APP_SERVER_LISTENING } from "../../lib/util/messages";
+import { TYPE_APP_SERVER_LISTENING } from "../../lib/universal-tools/messages";
 import testProcessSend from "../helpers/testProcessSend";
 
 test("should register a 'listening' event handler", t => {

@@ -1,4 +1,4 @@
-"use strict";
+/* eslint-disable import/unambiguous */
 
 const path = require("path");
 

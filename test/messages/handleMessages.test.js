@@ -1,5 +1,5 @@
 import test from "ava";
-import handleMessages from "../../lib/util/handleMessages";
+import handleMessages from "../../lib/messages/handleMessages";
 
 test("should register a listener for a 'message' event", t => {
     const registration = [];

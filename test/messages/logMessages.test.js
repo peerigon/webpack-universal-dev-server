@@ -1,5 +1,5 @@
 import test from "ava";
-import { buildStarted, buildSuccess, buildError } from "../../lib/util/logMessages";
+import { buildStarted, buildSuccess, buildError } from "../../lib/messages/logMessages";
 import normalizeLog from "../helpers/normalizeLog";
 
 function check(message) {

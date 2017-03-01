@@ -1,6 +1,6 @@
 import test from "ava";
 import pauseMiddleware from "../../lib/util/pauseMiddleware";
-import { wpDevServerPause, wpDevServerResume } from "../../lib/util/messages";
+import { wpDevServerPause, wpDevServerResume } from "../../lib/messages";
 import timeout from "../helpers/timeout";
 
 test("is inactive by default and just calls next", t => {

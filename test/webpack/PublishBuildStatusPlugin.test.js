@@ -1,6 +1,6 @@
 import test from "ava";
 import PublishBuildStatusPlugin from "../../lib/webpack/PublishBuildStatusPlugin";
-import { wpCompilation, wpDone } from "../../lib/util/messages";
+import { wpCompilation, wpDone } from "../../lib/messages";
 
 test("an instance exposes the option object", t => {
     const options = {

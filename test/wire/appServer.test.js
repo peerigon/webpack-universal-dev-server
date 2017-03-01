@@ -1,6 +1,6 @@
 import test from "ava";
 import wireAppServer from "../../lib/wire/appServer";
-import { TYPE_APP_SERVER_LISTENING, wpDevServerResume } from "../../lib/util/messages";
+import { TYPE_APP_SERVER_LISTENING, wpDevServerResume } from "../../lib/messages";
 import { WritableProcess, ReadableProcess } from "../helpers/fakeProcesses";
 import normalizeLog from "../helpers/normalizeLog";
 

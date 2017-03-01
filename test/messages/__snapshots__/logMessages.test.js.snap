@@ -1,0 +1,7 @@
+exports[`should log the expected buildError message 1`] = `"\"\\n---------------------------------------------------------------------------------------\\n\\u001b[31mwebpack client build error\\u001b[39m\\n---------------------------------------------------------------------------------------\\n\\nModule build failed\\n\\n---------------------------------------------------------------------------------------\""`;
+
+exports[`should log the expected buildStarted 1`] = `"\"\\u001b[33mwebpack client build\\u001b[39m started...\""`;
+
+exports[`should log the expected buildSuccess message with durations above 1 second 1`] = `"\"\\u001b[32mwebpack client build finished\\u001b[39m after 1.3s\""`;
+
+exports[`should log the expected buildSuccess message with durations below 1 second 1`] = `"\"\\u001b[32mwebpack client build finished\\u001b[39m after 0.3s\""`;

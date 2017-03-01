@@ -1,6 +1,6 @@
 import test from "ava";
 import wireWpDevServer from "../../lib/wire/wpDevServer";
-import { wpCompilation, wpDone } from "../../lib/util/messages";
+import { wpCompilation, wpDone } from "../../lib/messages";
 import { WritableProcess, ReadableProcess, SilentProcess } from "../helpers/fakeProcesses";
 import normalizeLog from "../helpers/normalizeLog";
 
