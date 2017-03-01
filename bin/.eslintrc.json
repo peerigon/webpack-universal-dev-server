@@ -1,5 +1,4 @@
 {
     "extends": [
-        "peerigon/node"
     ]
 }
