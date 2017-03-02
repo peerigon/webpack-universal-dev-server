@@ -26,9 +26,9 @@ test("should log a build started message when the wpDevServer process emitted a 
 test("should log a build success message when the wpDevServer process emitted a wpDone message with hasErrors false", t => {
     const wpDevServer = new ReadableProcess();
     const fakeWpStats = {
-        startTime: 1000, // fake timestamps, minimum precesion in milliseconds
+        startTime: 1000, // fake timestamps, minimum precision in milliseconds
         endTime: 2500,
-        hasErrors() { return false; },
+        hasErrors: () => false,
         hasWarnings: noop,
         toString: noop
     };
@@ -50,11 +50,9 @@ test("should log a build success message when the wpDevServer process emitted a 
 test("should log a build error message when the wpDevServer process emitted a wpDone message with an errorLog", t => {
     const wpDevServer = new ReadableProcess();
     const fakeWpStats = {
-        hasErrors() { return true; },
+        hasErrors: () => true,
         hasWarnings: noop,
-        toString() {
-            return "Module build failed";
-        }
+        toString: () => "Module build failed"
     };
     let receivedLog;
 

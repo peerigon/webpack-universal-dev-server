@@ -7,7 +7,7 @@ const pathToBin = require.resolve("../../bin/webpack-universal-dev-server.js");
 
 export function spawnBin({ args = [], cwd = process.cwd() }) {
     if (existsSync(cwd) === false) {
-        // Sanity check for cwd beause node reports a confusing error message
+        // Sanity check for cwd because node reports a confusing error message
         // https://github.com/nodejs/node/issues/11520
         throw new Error(`Given cwd ${ cwd } does not exist`);
     }
@@ -33,7 +33,11 @@ export function spawnBin({ args = [], cwd = process.cwd() }) {
 
     cp.stdoutPattern = function (pattern) {
         return new Promise((resolve, reject) => {
-            consumeUntil(cp.stdout, pattern, err => err ? reject(err) : resolve());
+            consumeUntil(
+                cp.stdout,
+                pattern,
+                err => (err ? reject(err) : resolve())
+            );
         });
     };
     cp.expectError = function () {

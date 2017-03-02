@@ -46,6 +46,7 @@ test("should `reject` promise when `reject` has been called", async t => {
         await deferred.promise;
     } catch (err) {
         t.is(err, ref);
+
         return;
     }
     t.fail("Deferred has been resolved instead of reject");

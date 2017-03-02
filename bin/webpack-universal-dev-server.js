@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 "use strict";
 
 // This binary is restricted to the development environment. Do not use it in production.
@@ -10,4 +9,6 @@ process.env.NODE_ENV = "development";
 console.log("");
 process.on("exit", () => console.log(""));
 
-require("../dist/bin/webpack-universal-dev-server");
+const main = require("../dist/bin/webpack-universal-dev-server").default;
+
+main();

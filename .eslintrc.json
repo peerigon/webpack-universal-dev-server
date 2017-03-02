@@ -1,7 +1,7 @@
 {
-    "parser": "babel-eslint",
     "extends": [
-        "peerigon/base"
+        "peerigon",
+        "peerigon/flowtype"
     ],
     "env": {
         "node": true

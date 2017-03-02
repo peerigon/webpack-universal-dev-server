@@ -4,7 +4,7 @@ function execBabel(inputFile, outputFile) {
     return new Promise((resolve, reject) => {
         exec(
             `node ./node_modules/.bin/babel ${ inputFile } -o ${ outputFile }`,
-            (err, stdout) => err ? reject(err) : resolve(stdout)
+            (err, stdout) => (err ? reject(err) : resolve(stdout))
         );
     });
 }

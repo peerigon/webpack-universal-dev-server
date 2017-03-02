@@ -28,7 +28,9 @@ test("should log a build success message when the wpWatchProcess emitted a wpDon
     const fakeWpStats = {
         startTime: 1000, // fake timestamps, minimum precesion in milliseconds
         endTime: 2500,
-        hasErrors() { return false; },
+        hasErrors() {
+            return false;
+        },
         hasWarnings: noop,
         toString: noop
     };
@@ -51,7 +53,9 @@ test("should log a build success message when the wpWatchProcess emitted a wpDon
 test("should call forkAppServer when the wpWatchProcess emitted a wpDone message with hasErrors false", t => {
     const wpWatchProcess = new ReadableProcess();
     const fakeWpStats = {
-        hasErrors() { return false; },
+        hasErrors() {
+            return false;
+        },
         hasWarnings: noop,
         toString: noop
     };
@@ -74,7 +78,9 @@ test("should call forkAppServer when the wpWatchProcess emitted a wpDone message
 test("should call kill on the appServer when the wpWatchProcess emitted a wpDone message with hasErrors false and then a wpCompilation message", t => {
     const wpWatchProcess = new ReadableProcess();
     const fakeWpStats = {
-        hasErrors() { return false; },
+        hasErrors() {
+            return false;
+        },
         hasWarnings: noop,
         toString: noop
     };
@@ -84,7 +90,9 @@ test("should call kill on the appServer when the wpWatchProcess emitted a wpDone
     wireWpWatchProcess({
         wpWatchProcess,
         process,
-        forkAppServer() { return appServer; },
+        forkAppServer() {
+            return appServer;
+        },
         log: noop
     });
 
@@ -101,7 +109,9 @@ test("should call kill on the appServer when the wpWatchProcess emitted a wpDone
 test("should log a build error message when the wpWatchProcess emitted a wpDone message with an errorLog", t => {
     const wpWatchProcess = new ReadableProcess();
     const fakeWpStats = {
-        hasErrors() { return true; },
+        hasErrors() {
+            return true;
+        },
         hasWarnings: noop,
         toString() {
             return "Module build failed";
