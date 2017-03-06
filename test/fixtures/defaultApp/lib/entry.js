@@ -1,3 +1,3 @@
-import message from "./message";
+import message from "./message"
 
-console.log(message);
+console.log(message)

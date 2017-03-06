@@ -1,6 +1,6 @@
 /* eslint-disable import/unambiguous */
 
-const path = require("path");
+const path = require("path")
 
 module.exports = {
     entry: require.resolve("./lib/entry.js"),
@@ -16,4 +16,4 @@ module.exports = {
             }]
         }]
     }
-};
+}
