@@ -1,3 +1,7 @@
 [options]
-suppress_comment=\\(.\\|\n\\)*\\@flow ignore-dynamic-require
-experimental.const_params=true
+# non-literal requires are already covered by eslint
+module.ignore_non_literal_requires=true
+module.use_strict=true
+strip_root=true
+[ignore]
+<PROJECT_ROOT>/test/

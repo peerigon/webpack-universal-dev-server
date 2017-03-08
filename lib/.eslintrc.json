@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "peerigon/flowtype",
+        "peerigon/fp"
+    ]
+}

@@ -1,7 +1,6 @@
 {
     "extends": [
         "peerigon",
-        "peerigon/flowtype",
         "peerigon/fp"
     ],
     "env": {
