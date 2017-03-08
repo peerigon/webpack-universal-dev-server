@@ -10,7 +10,7 @@
     "posttest": "npm run lint",
     "build": "babel lib -d dist",
     "build-watch": "babel lib -d dist -w",
-    "lint": "eslint --ignore-path .gitignore --fix bin lib test"
+    "lint": "eslint --ignore-path .gitignore bin lib test"
   },
   "bin": {
     "webpack-universal-dev-server": "./bin/webpack-universal-dev-server.js"
