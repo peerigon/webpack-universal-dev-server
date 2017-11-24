@@ -1,5 +1,5 @@
 export default function () {
     return {
-        babel: true
-    }
+        babel: true,
+    };
 }

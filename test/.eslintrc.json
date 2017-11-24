@@ -1,5 +1,6 @@
 {
     "extends": [
+        "peerigon/fp",
         "peerigon/tests"
     ]
 }

@@ -3,6 +3,6 @@
 module.exports = function (...args) {
     return {
         ctx: this,
-        args
-    }
-}
+        args,
+    };
+};

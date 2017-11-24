@@ -1,3 +1,3 @@
 /* eslint-disable import/unambiguous */
 
-module.exports = {}
+module.exports = {};

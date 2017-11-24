@@ -2,6 +2,6 @@
 
 module.exports = function () {
     return {
-        commonJs: true
-    }
-}
+        commonJs: true,
+    };
+};
