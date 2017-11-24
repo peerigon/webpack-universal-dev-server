@@ -12,7 +12,8 @@ const load = (
     args
 ) => {
     delete require.cache[configPath];
-    _load(configPath, context, args);
+
+    return _load(configPath, context, args);
 };
 
 test("should load a regular CommonJS module", async t => {
@@ -59,6 +60,8 @@ test("should not obscure config runtime errors", async t => {
 });
 
 test("should throw an error if the config does not export a function", async t => {
+    const matchPathToEmptyConfig = new RegExp(resolveConfig("empty").replace(/\\/g, "\\\\"));
+    const matchPathToObjectConfig = new RegExp(resolveConfig("object").replace(/\\/g, "\\\\"));
     let error = false;
 
     await load(resolveConfig("empty"))
@@ -66,13 +69,13 @@ test("should throw an error if the config does not export a function", async t =
 
     t.true(/Webpack config at .+ does not export a function/
         .test(error.message));
-    t.true(new RegExp(resolveConfig("empty"))
+    t.true(matchPathToEmptyConfig
         .test(error.message));
 
     await load(resolveConfig("object"))
         .catch(e => (error = e));
     t.true(/Webpack config at .+ does not export a function/
         .test(error.message));
-    t.true(new RegExp(resolveConfig("object"))
+    t.true(matchPathToObjectConfig
         .test(error.message));
 });

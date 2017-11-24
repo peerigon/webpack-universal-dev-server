@@ -5,7 +5,7 @@ import consumeUntil from "consume-until";
 
 const pathToBin = require.resolve("../../bin/webpack-universal-dev-server.js");
 
-export function spawnBin({ args = [], cwd = process.cwd() }) {
+export const spawnBin = ({ args = [], cwd = process.cwd() }) => {
     if (existsSync(cwd) === false) {
         // Sanity check for cwd because node reports a confusing error message
         // https://github.com/nodejs/node/issues/11520
@@ -31,26 +31,20 @@ export function spawnBin({ args = [], cwd = process.cwd() }) {
         }
     });
 
-    cp.stdoutPattern = function (pattern) {
-        return new Promise((resolve, reject) => {
-            consumeUntil(
-                cp.stdout,
-                pattern,
-                err => (err ? reject(err) : resolve())
-            );
-        });
-    };
-    cp.expectError = function () {
+    cp.stdoutPattern = (pattern) => new Promise((resolve, reject) => {
+        consumeUntil(
+            cp.stdout,
+            pattern,
+            err => (err ? reject(err) : resolve())
+        );
+    });
+    cp.expectError = () => {
         expectError = true;
     };
 
     return cp;
-}
+};
 
-export function fixtureConfig(fixtureName) {
-    return `--config ${ path.resolve(fixturePath(fixtureName), "webpack.config.js") }`;
-}
+export const fixtureConfig = (fixtureName) => `--config ${ path.resolve(fixturePath(fixtureName), "webpack.config.js") }`;
 
-export function fixturePath(fixtureName) {
-    return path.resolve(__dirname, "..", "fixture", fixtureName);
-}
+export const fixturePath = (fixtureName) => path.resolve(__dirname, "..", "fixture", fixtureName);

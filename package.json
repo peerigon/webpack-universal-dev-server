@@ -58,7 +58,7 @@
     "consume-until": "^2.0.1",
     "cross-env": "^3.2.3",
     "eslint": "^4.11.0",
-    "eslint-config-peerigon": "file:../eslint-config-peerigon",
+    "eslint-config-peerigon": "^12.0.1",
     "eslint-plugin-flowtype": "^2.39.1",
     "eslint-plugin-jsdoc": "^2.4.0",
     "flow": "^0.2.3",

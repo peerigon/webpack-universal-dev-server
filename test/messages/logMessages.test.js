@@ -4,11 +4,9 @@ import normalizeLog from "../helpers/normalizeLog";
 
 const in1300ms = 1300;
 const in300ms = 300;
-
-const check(message) => t => {
-        t.snapshot(normalizeLog(message));
-    }
-}
+const check = (message) => t => {
+    t.snapshot(normalizeLog(message));
+};
 
 test(
     "should log the expected buildStarted",
