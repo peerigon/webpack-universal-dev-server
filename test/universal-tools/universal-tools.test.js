@@ -6,7 +6,7 @@ const exec = (
     fixture
 ) =>
     new Promise((res, rej) => {
-        _exec(`node ${ resolve(__dirname, "fixtures", fixture) }`, (err, stdout, stderr) => {
+        _exec(`node "${ resolve(__dirname, "fixtures", fixture) }"`, (err, stdout, stderr) => {
             err ? rej(err) : res(stdout || stderr);
         });
     });
